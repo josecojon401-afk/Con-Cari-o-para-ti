@@ -68,18 +68,28 @@ function showScreen(screen){
         EFECTO CORTINAS
 ====================================================*/
 // RC 3.0
-await wait(3800);
+function openCurtains() {
 
-curtainLeft.style.transition = "transform 1.4s ease";
-curtainRight.style.transition = "transform 1.4s ease";
+    if (!curtainLeft || !curtainRight) return;
 
-curtainLeft.style.transform = "translateX(-100%)";
-curtainRight.style.transform = "translateX(100%)";
+    setTimeout(() => {
 
-await wait(1500);
+        curtainLeft.style.transition = "transform 1.4s ease";
+        curtainRight.style.transition = "transform 1.4s ease";
 
-curtainLeft.remove();
-curtainRight.remove();
+        curtainLeft.style.transform = "translateX(-100%)";
+        curtainRight.style.transform = "translateX(100%)";
+
+        setTimeout(() => {
+
+            curtainLeft.remove();
+            curtainRight.remove();
+
+        }, 1500);
+
+    }, 3800);
+
+}
 
 
 /*====================================================
@@ -183,6 +193,7 @@ function showPage(index){
 }
 
 showPage(0);
+openCurtains();
 /*====================================================
             LIBRO INTERACTIVO
 ====================================================*/
