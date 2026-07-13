@@ -1,0 +1,1561 @@
+/*==================================================
+            PARA TI - DELUXE
+            Release Final RC 1.0
+==================================================*/
+
+/*==================================================
+                VARIABLES
+==================================================*/
+
+:root{
+
+    --wine:#6E1833;
+    --wine-dark:#4E1023;
+
+    --gold:#D4AF37;
+    --gold-light:#F4D76A;
+
+    --cream:#FFF8F0;
+
+    --text:#333333;
+
+    --shadow:
+        0 25px 70px rgba(0,0,0,.35);
+
+    --radius:24px;
+
+    --transition:.35s ease;
+
+}
+
+
+/*==================================================
+                RESET
+==================================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    font-family:"Montserrat",sans-serif;
+
+    background:
+    linear-gradient(
+        160deg,
+        #4B0F28,
+        #6E1833,
+        #8A1D47
+    );
+
+    color:var(--cream);
+
+    overflow:hidden;
+
+    min-height:100vh;
+
+}
+
+
+/*==================================================
+                FONDO
+==================================================*/
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+
+        circle at top,
+
+        rgba(255,255,255,.08),
+
+        transparent 60%
+
+    );
+
+    pointer-events:none;
+
+}
+
+
+/*==================================================
+                PARTÍCULAS
+==================================================*/
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+
+/*==================================================
+                CORTINAS
+==================================================*/
+
+.curtain{
+
+    position:fixed;
+
+    top:0;
+
+    width:50%;
+
+    height:100vh;
+
+    background:
+
+    linear-gradient(
+
+        to bottom,
+
+        #4E1023,
+
+        #6E1833,
+
+        #3D0B1B
+
+    );
+
+    z-index:999;
+
+    transition:
+        transform 2.2s ease;
+
+}
+
+
+#curtainLeft{
+
+    left:0;
+
+    border-right:
+
+    2px solid
+
+    rgba(212,175,55,.35);
+
+}
+
+
+#curtainRight{
+
+    right:0;
+
+    border-left:
+
+    2px solid
+
+    rgba(212,175,55,.35);
+
+}
+
+
+/*==================================================
+            CONTENEDOR PRINCIPAL
+==================================================*/
+
+#app{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+
+    height:100vh;
+
+}
+
+
+/*==================================================
+                PANTALLAS
+==================================================*/
+
+.screen{
+
+    display:none;
+
+    width:100%;
+
+    height:100vh;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+
+.screen.active{
+
+    display:flex;
+
+}/*==================================================
+            PANTALLA DE BIENVENIDA
+==================================================*/
+
+.hero{
+
+    width:100%;
+    max-width:900px;
+
+    text-align:center;
+
+    animation:fadeUp 1.2s ease;
+
+}
+
+.hero h1{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(4rem,9vw,7rem);
+
+    color:var(--gold);
+
+    text-shadow:
+        0 0 15px rgba(212,175,55,.35);
+
+    margin-bottom:20px;
+
+}
+
+.subtitle{
+
+    font-size:1.3rem;
+
+    line-height:1.8;
+
+    color:var(--cream);
+
+    max-width:700px;
+
+    margin:0 auto 45px;
+
+    font-weight:300;
+
+}
+
+
+/*==================================================
+                TARJETA LOGIN
+==================================================*/
+
+.login-card{
+
+    width:100%;
+    max-width:520px;
+
+    background:
+
+    rgba(255,255,255,.08);
+
+    backdrop-filter:blur(16px);
+
+    border:
+
+    1px solid rgba(255,255,255,.18);
+
+    border-radius:var(--radius);
+
+    padding:45px;
+
+    box-shadow:var(--shadow);
+
+    text-align:center;
+
+}
+
+.login-card h2{
+
+    font-family:"Great Vibes",cursive;
+
+    color:var(--gold);
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+.login-card p{
+
+    margin-bottom:30px;
+
+    line-height:1.7;
+
+}
+
+
+/*==================================================
+                INPUT
+==================================================*/
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    border:
+
+    2px solid rgba(212,175,55,.25);
+
+    background:
+
+    rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:1rem;
+
+    outline:none;
+
+    transition:var(--transition);
+
+}
+
+.input-group input::placeholder{
+
+    color:rgba(255,255,255,.65);
+
+}
+
+.input-group input:focus{
+
+    border-color:var(--gold);
+
+    box-shadow:
+
+    0 0 18px rgba(212,175,55,.25);
+
+}
+
+
+/*==================================================
+                MENSAJE ERROR
+==================================================*/
+
+.error-message{
+
+    margin-top:20px;
+
+    color:#FFD7D7;
+
+    font-weight:600;
+
+    min-height:28px;
+
+}
+
+
+/*==================================================
+                BOTONES
+==================================================*/
+
+.primary-button,
+.secondary-button{
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:18px;
+
+    padding:16px 34px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+
+.primary-button{
+
+    background:var(--gold);
+
+    color:#442100;
+
+    box-shadow:
+
+    0 10px 25px rgba(212,175,55,.35);
+
+}
+
+.primary-button:hover{
+
+    transform:
+
+    translateY(-3px);
+
+    box-shadow:
+
+    0 16px 35px rgba(212,175,55,.45);
+
+}
+
+.primary-button:active{
+
+    transform:scale(.98);
+
+}
+
+
+.secondary-button{
+
+    background:
+
+    rgba(255,255,255,.10);
+
+    color:white;
+
+    border:
+
+    1px solid rgba(255,255,255,.25);
+
+}
+
+.secondary-button:hover{
+
+    background:
+
+    rgba(255,255,255,.18);
+
+    transform:
+
+    translateY(-2px);
+
+}
+
+
+/*==================================================
+                ESTADOS
+==================================================*/
+
+button:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+button:focus-visible,
+input:focus-visible{
+
+    outline:
+
+    3px solid rgba(212,175,55,.45);
+
+    outline-offset:3px;
+
+        }
+/*==================================================
+                    LIBRO
+==================================================*/
+
+.book-container{
+
+    width:100%;
+    max-width:1100px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    animation:fadeUp 1s ease;
+
+}
+
+.book{
+
+    position:relative;
+
+    width:100%;
+    max-width:850px;
+
+    min-height:600px;
+
+    background:rgba(255,248,240,.98);
+
+    color:var(--text);
+
+    border-radius:24px;
+
+    padding:60px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+
+/*==================================================
+                PORTADA
+==================================================*/
+
+.book-cover{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.book-cover h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:4rem;
+
+    color:var(--wine);
+
+    margin-bottom:15px;
+
+}
+
+.book-cover p{
+
+    font-size:1.15rem;
+
+    color:#555;
+
+}
+
+
+/*==================================================
+            INDICADOR DE PÁGINA
+==================================================*/
+
+.page-indicator{
+
+    position:absolute;
+
+    top:25px;
+    right:35px;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    background:rgba(110,24,51,.08);
+
+    color:var(--wine);
+
+    font-size:.90rem;
+
+    font-weight:600;
+
+}
+
+
+/*==================================================
+                    PÁGINAS
+==================================================*/
+
+.page{
+
+    display:none;
+
+    animation:pageFade .7s ease;
+
+}
+
+.page.active{
+
+    display:block;
+
+}
+
+.page h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:3rem;
+
+    color:var(--wine);
+
+    margin-bottom:30px;
+
+}
+
+.page p{
+
+    font-size:1.15rem;
+
+    line-height:2;
+
+    margin-bottom:25px;
+
+    color:#444;
+
+}
+
+
+/*==================================================
+                FOTOGRAFÍA
+==================================================*/
+
+.photo-frame{
+
+    width:320px;
+
+    margin:35px auto;
+
+    padding:12px;
+
+    background:white;
+
+    border-radius:22px;
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.25);
+
+    transition:var(--transition);
+
+}
+
+.photo-frame:hover{
+
+    transform:
+
+        scale(1.03);
+
+}
+
+.photo-frame img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:16px;
+
+}
+
+.photo-text{
+
+    text-align:center;
+
+    font-style:italic;
+
+    color:#666;
+
+}
+
+
+/*==================================================
+            CONTROLES DEL LIBRO
+==================================================*/
+
+.book-controls{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-top:50px;
+
+}
+
+.book-controls button{
+
+    min-width:180px;
+
+}
+
+
+/*==================================================
+                EFECTOS
+==================================================*/
+
+.book{
+
+    animation:
+
+        bookOpen 1s ease;
+
+}
+
+.page.active{
+
+    animation:
+
+        pageTurn .65s ease;
+
+}
+
+
+/*==================================================
+                SEPARADOR
+==================================================*/
+
+.book::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    width:2px;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            transparent,
+
+            rgba(0,0,0,.12),
+
+            transparent
+
+        );
+
+    transform:translateX(-50%);
+
+    pointer-events:none;
+
+}
+
+
+/*==================================================
+            BRILLO DECORATIVO
+==================================================*/
+
+.book::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            120deg,
+
+            transparent,
+
+            rgba(255,255,255,.18),
+
+            transparent
+
+        );
+
+    pointer-events:none;
+
+}
+
+
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media (max-width:900px){
+
+.book{
+
+    padding:35px;
+
+}
+
+.page h2{
+
+    font-size:2.3rem;
+
+}
+
+.page p{
+
+    font-size:1.02rem;
+
+}
+
+.photo-frame{
+
+    width:250px;
+
+}
+
+.book-controls{
+
+    flex-direction:column;
+
+}
+
+.book-controls button{
+
+    width:100%;
+
+}
+
+    }/*==================================================
+                PANTALLA FINAL
+==================================================*/
+
+.final-card{
+
+    width:100%;
+    max-width:900px;
+
+    padding:60px 50px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    animation:fadeUp 1s ease;
+
+}
+
+.final-card h1{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:5rem;
+
+    color:var(--gold);
+
+    margin-bottom:25px;
+
+}
+
+.final-card p{
+
+    max-width:700px;
+
+    margin:0 auto;
+
+    font-size:1.25rem;
+
+    line-height:2;
+
+    color:var(--cream);
+
+}
+
+
+/*==================================================
+                CORAZÓN
+==================================================*/
+
+.heart-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin:45px 0;
+
+}
+
+.heart{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #ff7da0,
+
+            #d4145a
+
+        );
+
+    color:white;
+
+    font-size:3.5rem;
+
+    box-shadow:
+
+        0 0 35px rgba(255,20,90,.45);
+
+    animation:
+
+        heartbeat 1.5s infinite ease-in-out;
+
+}
+
+
+/*==================================================
+                PÉTALOS
+==================================================*/
+
+.petal{
+
+    position:fixed;
+
+    top:-40px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50% 0 50% 50%;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            #ffd4e2,
+
+            #ff6f91
+
+        );
+
+    opacity:.85;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+
+/*==================================================
+                CONFETI
+==================================================*/
+
+.confetti{
+
+    position:fixed;
+
+    width:12px;
+
+    height:12px;
+
+    pointer-events:none;
+
+    z-index:30;
+
+}
+
+
+/*==================================================
+            MENSAJE NOSCRIPT
+==================================================*/
+
+.noscript-message{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    background:#fff;
+
+    color:#222;
+
+    z-index:5000;
+
+}
+
+.noscript-message h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:3rem;
+
+    color:var(--wine);
+
+    margin-bottom:20px;
+
+}
+
+.noscript-message p{
+
+    max-width:650px;
+
+    line-height:1.8;
+
+}
+
+
+/*==================================================
+            EFECTOS GENERALES
+==================================================*/
+
+.glow{
+
+    animation:
+
+        glowPulse 2.5s infinite ease-in-out;
+
+}
+
+.fade-in{
+
+    animation:
+
+        fadeUp .9s ease both;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+
+/*==================================================
+            RESPONSIVE TABLET
+==================================================*/
+
+@media (max-width:768px){
+
+.final-card{
+
+    padding:40px 28px;
+
+}
+
+.final-card h1{
+
+    font-size:3.8rem;
+
+}
+
+.final-card p{
+
+    font-size:1.08rem;
+
+}
+
+.heart{
+
+    width:95px;
+
+    height:95px;
+
+    font-size:2.8rem;
+
+}
+
+}
+
+
+/*==================================================
+            RESPONSIVE MÓVIL
+==================================================*/
+
+@media (max-width:480px){
+
+.screen{
+
+    padding:20px;
+
+}
+
+.hero h1{
+
+    font-size:3.8rem;
+
+}
+
+.subtitle{
+
+    font-size:1.05rem;
+
+}
+
+.login-card{
+
+    padding:30px 22px;
+
+}
+
+.book{
+
+    padding:25px;
+
+}
+
+.page h2{
+
+    font-size:2rem;
+
+}
+
+.page p{
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+}
+
+.photo-frame{
+
+    width:210px;
+
+}
+
+.final-card{
+
+    padding:30px 22px;
+
+}
+
+.final-card h1{
+
+    font-size:3.2rem;
+
+}
+
+.final-card p{
+
+    font-size:1rem;
+
+}
+
+.primary-button,
+
+.secondary-button{
+
+    width:100%;
+
+}
+
+}
+
+
+/*==================================================
+        PANTALLAS MUY PEQUEÑAS
+==================================================*/
+
+@media (max-width:360px){
+
+.hero h1{
+
+    font-size:3rem;
+
+}
+
+.login-card h2{
+
+    font-size:2.4rem;
+
+}
+
+.page h2{
+
+    font-size:1.8rem;
+
+}
+
+.page p{
+
+    font-size:.95rem;
+
+}
+
+.photo-frame{
+
+    width:180px;
+
+}
+
+.heart{
+
+    width:80px;
+
+    height:80px;
+
+    font-size:2.2rem;
+
+}
+
+    }/*==================================================
+                ANIMACIONES
+==================================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes pageFade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes pageTurn{
+
+    0%{
+
+        opacity:0;
+        transform:
+            rotateY(-12deg)
+            translateX(18px);
+
+    }
+
+    100%{
+
+        opacity:1;
+        transform:
+            rotateY(0)
+            translateX(0);
+
+    }
+
+}
+
+@keyframes heartbeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    20%{
+
+        transform:scale(1.08);
+
+    }
+
+    40%{
+
+        transform:scale(.96);
+
+    }
+
+    60%{
+
+        transform:scale(1.12);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes glowPulse{
+
+    0%{
+
+        box-shadow:
+        0 0 15px rgba(212,175,55,.20);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 40px rgba(212,175,55,.55);
+
+    }
+
+    100%{
+
+        box-shadow:
+        0 0 15px rgba(212,175,55,.20);
+
+    }
+
+}
+
+@keyframes bookOpen{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            perspective(1200px)
+            rotateY(-10deg)
+            scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            perspective(1200px)
+            rotateY(0)
+            scale(1);
+
+    }
+
+}
+
+@keyframes floatPetal{
+
+    from{
+
+        transform:
+            translateY(-20px)
+            rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity:0;
+
+    }
+
+}
+
+@keyframes shimmer{
+
+    from{
+
+        background-position:-250px 0;
+
+    }
+
+    to{
+
+        background-position:250px 0;
+
+    }
+
+}
+
+/*==================================================
+            CLASES AUXILIARES
+==================================================*/
+
+.fade-enter{
+
+    animation:
+        fadeUp .6s ease both;
+
+}
+
+.page-transition{
+
+    animation:
+        pageTurn .6s ease both;
+
+}
+
+.glass{
+
+    backdrop-filter:blur(16px);
+
+    -webkit-backdrop-filter:blur(16px);
+
+}
+
+.shadow{
+
+    box-shadow:var(--shadow);
+
+}
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.visible{
+
+    display:block !important;
+
+}
+
+/*==================================================
+            OPTIMIZACIÓN
+==================================================*/
+
+img{
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+button{
+
+    font-family:inherit;
+
+}
+
+input{
+
+    font-family:inherit;
+
+}
+
+audio{
+
+    display:none;
+
+}
+
+/*==================================================
+        REDUCCIÓN DE MOVIMIENTO
+==================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+*{
+
+    animation-duration:.01ms !important;
+
+    animation-iteration-count:1 !important;
+
+    transition-duration:.01ms !important;
+
+    scroll-behavior:auto !important;
+
+}
+
+}
+
+/*==================================================
+            FIN DEL ARCHIVO
+==================================================*/
