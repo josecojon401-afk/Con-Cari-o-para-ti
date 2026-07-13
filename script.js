@@ -65,7 +65,7 @@ function showScreen(screen){
 // Evento del botón Comenzar
 startBtn.addEventListener("click", () => {
 
-    showScreen(screens.password);
+    showScreen(screens.login);
 
     passwordInput.focus();
 
