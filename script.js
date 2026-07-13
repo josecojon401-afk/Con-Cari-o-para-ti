@@ -206,9 +206,18 @@ openCurtains();
 ====================================================*/
 
 // Botones "Siguiente"
-const nextButtons = document.querySelectorAll(".next");
-
+const nextButtons = [document.getElementById("nextBtn")];
+const prevBtn = document.getElementById("prevBtn");
 // Crear indicador de páginas
+prevBtn.addEventListener("click", () => {
+
+    if (currentPage > 0) {
+
+        goToPage(currentPage - 1);
+
+    }
+
+});
 const pageIndicator = document.createElement("div");
 
 pageIndicator.id = "pageIndicator";
