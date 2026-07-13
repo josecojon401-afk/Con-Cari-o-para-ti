@@ -68,34 +68,18 @@ function showScreen(screen){
         EFECTO CORTINAS
 ====================================================*/
 
-window.addEventListener("load",()=>{
+await wait(3800);
 
-    setTimeout(()=>{
+curtainLeft.style.transition = "transform 1.4s ease";
+curtainRight.style.transition = "transform 1.4s ease";
 
-        curtain.style.transition="opacity 1.4s ease";
+curtainLeft.style.transform = "translateX(-100%)";
+curtainRight.style.transform = "translateX(100%)";
 
-        curtain.style.opacity="0";
+await wait(1500);
 
-        setTimeout(()=>{
-
-            curtain.remove();
-
-        },1500);
-
-    },3800);
-
-});
-
-
-/*====================================================
-        BOTÓN COMENZAR
-====================================================*/
-
-startBtn.addEventListener("click",()=>{
-
-    showScreen(screens.login);
-
-});
+curtainLeft.remove();
+curtainRight.remove();
 
 
 /*====================================================
