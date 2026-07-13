@@ -29,7 +29,7 @@ const screens = {
 
 const startBtn = document.getElementById("startBtn");
 
-const openBtn = document.getElementById("openBtn");
+const openBtn = document.getElementById("unlockBtn");
 
 const restartBtn = document.getElementById("restart");
 
@@ -67,7 +67,7 @@ function showScreen(screen){
 /*====================================================
         EFECTO CORTINAS
 ====================================================*/
-
+// RC 3.0
 await wait(3800);
 
 curtainLeft.style.transition = "transform 1.4s ease";
