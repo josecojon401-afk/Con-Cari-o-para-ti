@@ -39,7 +39,8 @@ const error = document.getElementById("error");
 
 const music = document.getElementById("music");
 
-const curtain = document.getElementById("curtain");
+const curtainLeft = document.getElementById("curtainLeft");
+const curtainRight = document.getElementById("curtainRight");
 
 const pages = document.querySelectorAll(".page");
 
