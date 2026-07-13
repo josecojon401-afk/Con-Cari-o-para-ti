@@ -62,7 +62,14 @@ function showScreen(screen){
     screen.classList.add("active");
 
 }
+// Evento del botón Comenzar
+startBtn.addEventListener("click", () => {
 
+    showScreen(screens.password);
+
+    passwordInput.focus();
+
+});
 
 /*====================================================
         EFECTO CORTINAS
